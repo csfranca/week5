@@ -11,36 +11,31 @@ Contact.destroy_all
 # - Insert and read contact data for companies in the database
 
 # 1. insert new rows in the contacts table with relationship to a company
-puts "Companies: #{Company.all.count}"
-puts "Contacts: #{Contact.all.count}"
 
 apple = Company.find_by({ "name" => "Apple" })
-puts apple.inspect
 
-cook = Contact.new
-cook["first_name"] = "Tim"
-cook["last_name"] = "Cook"
-cook["email"] = "tim@apple.com"
-cook["company_id"] = apple["id"]
-cook.save
+contact = Contact.new
+contact["first_name"] = "Tim"
+contact["last_name"] = "Cook"
+contact["email"] = "tim@apple.com"
+contact["company_id"] = apple["id"]
+contact.save
 
-#puts cook.inspect
-
-craig = Contact.new
-craig["first_name"] = "Craig"
-craig["last_name"] = "Federighi"
-craig["email"] = "craig@apple.com"
-craig["company_id"] = apple["id"]
-craig.save
+contact = Contact.new
+contact["first_name"] = "Craig"
+contact["last_name"] = "Federighi"
+contact["email"] = "craig@apple.com"
+contact["company_id"] = apple["id"]
+contact.save
 
 amazon = Company.find_by({ "name" => "Amazon" })
 
-bezos = Contact.new
-bezos["first_name"] = "Jeff"
-bezos["last_name"] = "Bezos"
-bezos["email"] = "jeff@blue.com"
-bezos["company_id"] = amazon["id"]
-bezos.save
+contact = Contact.new
+contact["first_name"] = "Jeff"
+contact["last_name"] = "Bezos"
+contact["email"] = "jeff@amazon.com"
+contact["company_id"] = amazon["id"]
+contact.save
 
 puts "There are #{Company.all.count} companies"
 puts "There are #{Contact.all.count} contacts"
